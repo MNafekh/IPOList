@@ -1,9 +1,11 @@
 import os
 import time
-import IPOScraper as api
+
 import discord
 from discord.ext import commands
 from dotenv import load_dotenv
+
+import IPOScraper as api
 
 load_dotenv()
 
@@ -17,7 +19,7 @@ class ListBot(discord.Client):
         if message.author.id != client.user.id: # prevent recursive calling
             msg = message.content.split()
             if msg[0] == "!ipocal":
-                embed = api.get_ipos_nasdank()
+                embed = api.get_ipos()
                 await message.channel.send(embed=embed)
 
 client = ListBot()

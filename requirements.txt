@@ -1,4 +1,5 @@
 discord
 requests
+requests-html
 prettytable
-datetime
+python-dotenv
