@@ -20,7 +20,7 @@ class ListBot(discord.Client):
             msg = message.content.split()
             if msg[0] == "!ipocal":
                 embed = api.get_ipos()
-                await message.channel.send(embed=embed)
+                await message.channel.send(embed)
 
 client = ListBot()
 client.run(TOKEN)
