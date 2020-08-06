@@ -6,7 +6,6 @@ import discord
 import requests
 from dotenv import load_dotenv
 from prettytable import PrettyTable
-from texttable import Texttable
 from requests_html import HTMLSession
 
 load_dotenv()
