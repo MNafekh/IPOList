@@ -1,8 +1,0 @@
-{
-“name”: “IPOLister”,
-“version”: “1.0.0”,
-“description”: “Lists this month's IPOs”,
-“main”: “ListBot.py”,
-“author”: “Martin Nafekh”,
-“dependencies”: {}
-}
