@@ -15,6 +15,8 @@ def get_ipos():
     session = HTMLSession()
 
     r = session.get('https://www.marketwatch.com/tools/ipo-calendar')
+
+    # Use investing.com to test when MW craps out
     #r = session.get('https://www.investing.com/ipo-calendar/')
 
     # table = r.html.find('.ipoTbl', first=True)    

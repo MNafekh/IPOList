@@ -1,1 +1,1 @@
-worker: python ListBot.py
+clock: python ListBot.py

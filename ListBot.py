@@ -1,26 +1,24 @@
 import os
 import time
+import requests
 
 import discord
-from discord.ext import commands
+from apscheduler.schedulers.blocking import BlockingScheduler
+from discord import Webhook, RequestsWebhookAdapter
 from dotenv import load_dotenv
 
 import IPOScraper as api
 
 load_dotenv()
 
-TOKEN = os.getenv('DISCORD_TOKEN')
+sched = BlockingScheduler()
 
-class ListBot(discord.Client):
-    async def on_ready(self):
-        await client.change_presence(status=discord.Status.online, activity=discord.Game("the 30/30 rule"))
+@sched.scheduled_job('cron', day_of_week='sun', hour='18')
+def print_table() :
+    hook_id = os.getenv('DANK_HOOK_ID')
+    hook_token = os.getenv('DANK_HOOK_TOKEN')
 
-    async def on_message(self, message: discord.message.Message):
-        if message.author.id != client.user.id: # prevent recursive calling
-            msg = message.content.split()
-            if msg[0] == "!ipocal":
-                embed = api.get_ipos()
-                await message.channel.send(embed)
+    webhook = Webhook.partial(hook_id, hook_token, adapter=RequestsWebhookAdapter())
+    webhook.send(api.get_ipos(), username='IPOBot')
 
-client = ListBot()
-client.run(TOKEN)
+sched.start()
