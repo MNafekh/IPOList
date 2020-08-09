@@ -13,7 +13,7 @@ load_dotenv()
 
 sched = BlockingScheduler()
 
-@sched.scheduled_job('cron', day_of_week='sun', hour='18')
+@sched.scheduled_job('cron', day_of_week='mon', hour='12')
 def print_table() :
     hook_id = os.getenv('DANK_HOOK_ID')
     hook_token = os.getenv('DANK_HOOK_TOKEN')
