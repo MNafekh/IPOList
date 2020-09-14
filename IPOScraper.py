@@ -25,10 +25,10 @@ def get_ipos():
     table = r.html.find('.table')
     if len(table) > 0:
         rows = table[1].find('td')
-        t = PrettyTable(['Company', 'Symbol', 'Price Range', 'Shares', 'Week'], align="l")
+        t = PrettyTable(['Company', 'Symbol', 'Price Range', 'Shares'], align="l")
         cnt = 0
         while cnt < len(rows):
-            t.add_row([rows[cnt].text, rows[cnt+1].text, rows[cnt+3].text, rows[cnt+4].text, rows[cnt+5].text])
+            t.add_row([rows[cnt].text, rows[cnt+1].text, rows[cnt+3].text, rows[cnt+4].text])
             cnt += 6
         return "```\n" + title + "\n" + t.get_string() + "```"
     else:
