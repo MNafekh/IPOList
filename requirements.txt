@@ -1,4 +1,4 @@
-aiohttp==3.6.2
+aiohttp==3.7.4
 alpaca-trade-api==0.38
 alpha-vantage==2.1.0
 appdirs==1.4.3
